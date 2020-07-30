@@ -1,0 +1,36 @@
+﻿@model List<Store.Web.StoreWS.Order>
+@{
+    ViewBag.Title = "ShowOrders";
+}
+
+<h2>Ordems</h2>
+
+
+<div>
+    <table>
+        @foreach (var client in Model)
+        {
+            <h1>@client.Client.FirstName @client.Client.LastName</h1>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>Produto</td>
+                        <td>Quantidade</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var ordemItens in client.OrderItems)
+                    {
+                        <tr>
+                            <td>@ordemItens.ProductId</td>
+                            <td>@ordemItens.Products.Name</td>
+                            <td>@ordemItens.Quantity</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </table>
+</div>

@@ -1,0 +1,20 @@
+﻿
+
+@{
+    ViewBag.Title = "Import";
+}
+
+<h2>Import</h2>
+
+
+<div>
+    @using (Html.BeginForm("import", "Order", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="form-group" style="width:50%">
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+            <label for="exampleInputFile">Insira seu arquivo de Ordens Aqui</label>
+            <input name="file" type="file" id="exampleInputFile" accept=".txt">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    }
+</div>
